@@ -1,4 +1,4 @@
-  class dbQuery {
+exports.dbQuery = class {
     constructor(query,params){
       this.query = query;
       this.params = params;
@@ -12,14 +12,13 @@
     setErr(err){
       this.err = err;
     }
-  }
+}
   
-function sqlite3dbAll(db,qList,cb){
-
+exports.sqlite3dbAll = function(db,qList,cb){
 sqlite3dbAllrec(db,qList,cb,{});
 }
 
-function sqlite3dbAllrec(DB,qList,cb, cbList){
+sqlite3dbAllrec = function(DB,qList,cb, cbList){
   if(!(qList.length)){
     cb(cbList);
     return;
